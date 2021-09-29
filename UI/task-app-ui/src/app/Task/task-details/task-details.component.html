@@ -1,0 +1,42 @@
+<div class="jumbotron">
+    <h1 class="text-center">Task Management App</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <app-task-detail-form></app-task-detail-form>
+        </div>
+        <div class="col-md-6" id="col-table">
+            <table class="table text-center">
+                <thead class="thead-light">
+                    <tr>
+                        <th>
+                            <div class="d-flex flex-row">
+                                <input type="text" [(ngModel)]="TaskTitleFilter" (keyup)="filterFn()" placeholder="Filter by Title" class="form-control">
+                            </div> Task Title
+                        </th>
+                        <th>
+                            <div class="d-flex flex-row">
+                                <input type="text" [(ngModel)]="TaskDescriptionFilter" (keyup)="filterFn()" placeholder="Filter by Description" class="form-control">
+                            </div> Task Description
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let task of service.taskList">
+                        <td (click)="populateForm(task)">{{task.taskTitle}}</td>
+                        <td (click)="populateForm(task)">{{task.taskDescription}}</td>
+                        <td>
+                            <button class="btn btn-default" type="button" (click)="deleteTask(task.taskId)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                </svg>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

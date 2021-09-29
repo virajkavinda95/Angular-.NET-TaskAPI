@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+table tbody tr:hover{
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
+/* for form validation */
+input.invalid{
+    border: 1px solid red;
+}
+
+textarea.invalid{
+    border: 1px solid red;
+}
+
